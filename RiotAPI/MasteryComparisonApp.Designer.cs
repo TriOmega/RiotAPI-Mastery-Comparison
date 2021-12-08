@@ -97,6 +97,7 @@ namespace RiotAPI
             this.secondSummonerNameTextBox.Size = new System.Drawing.Size(363, 20);
             this.secondSummonerNameTextBox.TabIndex = 1;
             this.secondSummonerNameTextBox.TextChanged += new System.EventHandler(this.secondSummonerNameTextBox_TextChanged);
+            this.secondSummonerNameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.secondSummonerNameTextBox_KeyDown);
             // 
             // secondSummonerInputLabel
             // 
@@ -164,6 +165,7 @@ namespace RiotAPI
             this.firstSummonerNameTextBox.Size = new System.Drawing.Size(363, 20);
             this.firstSummonerNameTextBox.TabIndex = 1;
             this.firstSummonerNameTextBox.TextChanged += new System.EventHandler(this.firstSummonerNameTextBox_TextChanged);
+            this.firstSummonerNameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.firstSummonerNameTextBox_KeyDown);
             // 
             // firstSummonerInputLabel
             // 
