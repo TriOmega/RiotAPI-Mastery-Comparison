@@ -6,15 +6,12 @@ using System.Threading.Tasks;
 using MingweiSamuel.Camille;
 using MingweiSamuel.Camille.Enums;
 using MingweiSamuel.Camille.SummonerV4;
+using MingweiSamuel.Camille.ChampionMasteryV4;
 
 namespace RiotAPI
 {
     class ComparisonData
     {
-        //public ComparisonData()
-        //{
-        //    var myApi = RiotApi.NewInstance("RGAPI-e0aa5040-e568-4e0e-8873-a44066bb97bd");
-        //}
         public ComparisonData(RiotApi riotApi)
         {
             ApiInstance = riotApi;
@@ -30,5 +27,6 @@ namespace RiotAPI
         public Summoner Summoner2 { get; set; }
 
         private Summoner _summoner1;
+
     }
 }

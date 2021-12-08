@@ -96,6 +96,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\ChampionEntry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ChampionEntry.Designer.cs">
+      <DependentUpon>ChampionEntry.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MasteryComparisonApp.resx">
       <DependentUpon>MasteryComparisonApp.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,6 +114,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\ChampionEntry.resx">
+      <DependentUpon>ChampionEntry.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="champion.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

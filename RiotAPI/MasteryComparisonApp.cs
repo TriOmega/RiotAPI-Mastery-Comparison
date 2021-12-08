@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using MingweiSamuel.Camille;
+using RiotAPI.UserControls;
 
 namespace RiotAPI
 {
@@ -29,13 +30,30 @@ namespace RiotAPI
 
         private void compareButton_Click(object sender, EventArgs e)
         {
-            CompData.Summoner1 = CompData.ApiInstance.SummonerV4.GetBySummonerName(MingweiSamuel.Camille.Enums.Region.NA, FirstSummonerID);
-            firstSummonerOutputLabel.Text = CompData.Summoner1.Name;
+            ChampionEntry[] championEntries = new ChampionEntry[5];
+            for (int i = 0; i < championEntries.Length; i++)
+            {
+                championEntries[i] = new ChampionEntry();
+                firstSummonerFlowPanel.Controls.Add(championEntries[i]);
+            }
         }
 
         private void firstSummonerNameTextBox_TextChanged(object sender, EventArgs e)
         {
             compareButton.Enabled = !string.IsNullOrEmpty(FirstSummonerID);
+        }
+
+        private void firstSummonerOKButton_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(FirstSummonerID))
+            {
+                CompData.Summoner1 = CompData.ApiInstance.SummonerV4.GetBySummonerName(MingweiSamuel.Camille.Enums.Region.NA, FirstSummonerID);
+                firstSummonerOutputLabel.Text = CompData.Summoner1.Name;
+            }
+            else
+            {
+                MessageBox.Show("Valid name required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
