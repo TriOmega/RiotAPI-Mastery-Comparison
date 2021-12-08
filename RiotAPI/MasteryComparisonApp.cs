@@ -19,6 +19,18 @@ namespace RiotAPI
                 firstSummonerNameTextBox.Text = value;
             }
         }
+        
+        public string SecondSummonerID
+        {
+            get
+            {
+                return secondSummonerNameTextBox.Text;
+            }
+            set
+            {
+                secondSummonerNameTextBox.Text = value;
+            }
+        }
 
         private ComparisonData CompData { get; set; }
 
@@ -49,6 +61,24 @@ namespace RiotAPI
             {
                 CompData.Summoner1 = CompData.ApiInstance.SummonerV4.GetBySummonerName(MingweiSamuel.Camille.Enums.Region.NA, FirstSummonerID);
                 firstSummonerOutputLabel.Text = CompData.Summoner1.Name;
+            }
+            else
+            {
+                MessageBox.Show("Valid name required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void secondSummonerNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void secondSummonerOKButton_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(SecondSummonerID))
+            {
+                CompData.Summoner2 = CompData.ApiInstance.SummonerV4.GetBySummonerName(MingweiSamuel.Camille.Enums.Region.NA, SecondSummonerID);
+                secondSummonerOutputLabel.Text = CompData.Summoner2.Name;
             }
             else
             {

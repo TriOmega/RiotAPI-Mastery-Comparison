@@ -42,8 +42,8 @@ namespace RiotAPI
             this.firstSummonerNameTextBox = new System.Windows.Forms.TextBox();
             this.firstSummonerOutputLabel = new System.Windows.Forms.Label();
             this.secondSummonerOutputLabel = new System.Windows.Forms.Label();
-            this.secondSummonerListView = new System.Windows.Forms.ListView();
             this.firstSummonerFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.secondSummonerFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             inputPanel = new System.Windows.Forms.Panel();
             secondSummonerInputPanel = new System.Windows.Forms.Panel();
             secondSummonerInputLabel = new System.Windows.Forms.Label();
@@ -87,6 +87,7 @@ namespace RiotAPI
             this.secondSummonerOKButton.TabIndex = 2;
             this.secondSummonerOKButton.Text = "OK";
             this.secondSummonerOKButton.UseVisualStyleBackColor = true;
+            this.secondSummonerOKButton.Click += new System.EventHandler(this.secondSummonerOKButton_Click);
             // 
             // secondSummonerNameTextBox
             // 
@@ -95,6 +96,7 @@ namespace RiotAPI
             this.secondSummonerNameTextBox.Name = "secondSummonerNameTextBox";
             this.secondSummonerNameTextBox.Size = new System.Drawing.Size(363, 20);
             this.secondSummonerNameTextBox.TabIndex = 1;
+            this.secondSummonerNameTextBox.TextChanged += new System.EventHandler(this.secondSummonerNameTextBox_TextChanged);
             // 
             // secondSummonerInputLabel
             // 
@@ -196,32 +198,33 @@ namespace RiotAPI
             this.secondSummonerOutputLabel.TabIndex = 8;
             this.secondSummonerOutputLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // secondSummonerListView
-            // 
-            this.secondSummonerListView.HideSelection = false;
-            this.secondSummonerListView.Location = new System.Drawing.Point(428, 251);
-            this.secondSummonerListView.Name = "secondSummonerListView";
-            this.secondSummonerListView.Size = new System.Drawing.Size(393, 647);
-            this.secondSummonerListView.TabIndex = 7;
-            this.secondSummonerListView.UseCompatibleStateImageBehavior = false;
-            // 
             // firstSummonerFlowPanel
             // 
             this.firstSummonerFlowPanel.AutoScroll = true;
+            this.firstSummonerFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.firstSummonerFlowPanel.Location = new System.Drawing.Point(13, 251);
             this.firstSummonerFlowPanel.Name = "firstSummonerFlowPanel";
             this.firstSummonerFlowPanel.Size = new System.Drawing.Size(393, 647);
             this.firstSummonerFlowPanel.TabIndex = 9;
+            // 
+            // secondSummonerFlowPanel
+            // 
+            this.secondSummonerFlowPanel.AutoScroll = true;
+            this.secondSummonerFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.secondSummonerFlowPanel.Location = new System.Drawing.Point(428, 251);
+            this.secondSummonerFlowPanel.Name = "secondSummonerFlowPanel";
+            this.secondSummonerFlowPanel.Size = new System.Drawing.Size(393, 647);
+            this.secondSummonerFlowPanel.TabIndex = 10;
             // 
             // MasteryComparisonApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 911);
+            this.Controls.Add(this.secondSummonerFlowPanel);
             this.Controls.Add(this.firstSummonerFlowPanel);
             this.Controls.Add(this.secondSummonerOutputLabel);
             this.Controls.Add(this.firstSummonerOutputLabel);
-            this.Controls.Add(this.secondSummonerListView);
             this.Controls.Add(inputPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MasteryComparisonApp";
@@ -239,7 +242,6 @@ namespace RiotAPI
 
         #endregion
         private System.Windows.Forms.Button compareButton;
-        private System.Windows.Forms.ListView secondSummonerListView;
         private System.Windows.Forms.TextBox firstSummonerNameTextBox;
         private System.Windows.Forms.Button secondSummonerOKButton;
         private System.Windows.Forms.TextBox secondSummonerNameTextBox;
@@ -247,6 +249,7 @@ namespace RiotAPI
         private System.Windows.Forms.Label firstSummonerOutputLabel;
         private System.Windows.Forms.Label secondSummonerOutputLabel;
         private System.Windows.Forms.FlowLayoutPanel firstSummonerFlowPanel;
+        private System.Windows.Forms.FlowLayoutPanel secondSummonerFlowPanel;
     }
 }
 

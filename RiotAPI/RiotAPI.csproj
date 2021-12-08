@@ -87,7 +87,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComparisonData.cs" />
+    <Compile Include="Classes\ComparisonData.cs" />
     <Compile Include="MasteryComparisonApp.cs">
       <SubType>Form</SubType>
     </Compile>
