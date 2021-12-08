@@ -42,9 +42,8 @@ namespace RiotAPI
             this.firstSummonerNameTextBox = new System.Windows.Forms.TextBox();
             this.firstSummonerOutputLabel = new System.Windows.Forms.Label();
             this.secondSummonerOutputLabel = new System.Windows.Forms.Label();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.listView3 = new System.Windows.Forms.ListView();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.firstSummonerListView = new System.Windows.Forms.ListView();
+            this.secondSummonerListView = new System.Windows.Forms.ListView();
             inputPanel = new System.Windows.Forms.Panel();
             secondSummonerInputPanel = new System.Windows.Forms.Panel();
             secondSummonerInputLabel = new System.Windows.Forms.Label();
@@ -160,7 +159,7 @@ namespace RiotAPI
             this.firstSummonerNameTextBox.Name = "firstSummonerNameTextBox";
             this.firstSummonerNameTextBox.Size = new System.Drawing.Size(363, 20);
             this.firstSummonerNameTextBox.TabIndex = 1;
-            this.firstSummonerNameTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.firstSummonerNameTextBox.TextChanged += new System.EventHandler(this.firstSummonerNameTextBox_TextChanged);
             // 
             // firstSummonerInputLabel
             // 
@@ -172,7 +171,6 @@ namespace RiotAPI
             firstSummonerInputLabel.Size = new System.Drawing.Size(148, 17);
             firstSummonerInputLabel.TabIndex = 0;
             firstSummonerInputLabel.Text = "First Summoner Name";
-            firstSummonerInputLabel.Click += new System.EventHandler(this.label2_Click);
             // 
             // firstSummonerOutputLabel
             // 
@@ -184,7 +182,6 @@ namespace RiotAPI
             this.firstSummonerOutputLabel.Size = new System.Drawing.Size(393, 30);
             this.firstSummonerOutputLabel.TabIndex = 0;
             this.firstSummonerOutputLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.firstSummonerOutputLabel.Click += new System.EventHandler(this.firstSummonerLabel_Click);
             // 
             // secondSummonerOutputLabel
             // 
@@ -197,32 +194,23 @@ namespace RiotAPI
             this.secondSummonerOutputLabel.TabIndex = 8;
             this.secondSummonerOutputLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // listView2
+            // firstSummonerListView
             // 
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(13, 251);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(393, 647);
-            this.listView2.TabIndex = 6;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.firstSummonerListView.HideSelection = false;
+            this.firstSummonerListView.Location = new System.Drawing.Point(13, 251);
+            this.firstSummonerListView.Name = "firstSummonerListView";
+            this.firstSummonerListView.Size = new System.Drawing.Size(393, 647);
+            this.firstSummonerListView.TabIndex = 6;
+            this.firstSummonerListView.UseCompatibleStateImageBehavior = false;
             // 
-            // listView3
+            // secondSummonerListView
             // 
-            this.listView3.HideSelection = false;
-            this.listView3.Location = new System.Drawing.Point(428, 251);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(393, 647);
-            this.listView3.TabIndex = 7;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(412, 273);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(10, 600);
-            this.listView1.TabIndex = 3;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.secondSummonerListView.HideSelection = false;
+            this.secondSummonerListView.Location = new System.Drawing.Point(428, 251);
+            this.secondSummonerListView.Name = "secondSummonerListView";
+            this.secondSummonerListView.Size = new System.Drawing.Size(393, 647);
+            this.secondSummonerListView.TabIndex = 7;
+            this.secondSummonerListView.UseCompatibleStateImageBehavior = false;
             // 
             // MasteryComparisonApp
             // 
@@ -231,9 +219,8 @@ namespace RiotAPI
             this.ClientSize = new System.Drawing.Size(834, 911);
             this.Controls.Add(this.secondSummonerOutputLabel);
             this.Controls.Add(this.firstSummonerOutputLabel);
-            this.Controls.Add(this.listView3);
-            this.Controls.Add(this.listView2);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.secondSummonerListView);
+            this.Controls.Add(this.firstSummonerListView);
             this.Controls.Add(inputPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MasteryComparisonApp";
@@ -251,9 +238,8 @@ namespace RiotAPI
 
         #endregion
         private System.Windows.Forms.Button compareButton;
-        private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.ListView listView3;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView firstSummonerListView;
+        private System.Windows.Forms.ListView secondSummonerListView;
         private System.Windows.Forms.TextBox firstSummonerNameTextBox;
         private System.Windows.Forms.Button secondSummonerOKButton;
         private System.Windows.Forms.TextBox secondSummonerNameTextBox;
