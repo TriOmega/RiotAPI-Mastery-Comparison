@@ -61,13 +61,13 @@ namespace RiotAPI
         {
             if (e.KeyData == Keys.Enter)
             {
-                CheckSummonerNameInput(FirstSummonerID, CompData.Summoner1, firstSummonerOutputLabel);
+                CheckSummonerNameInput(1);
             }
         }
 
         private void firstSummonerOKButton_Click(object sender, EventArgs e)
         {
-            CheckSummonerNameInput(FirstSummonerID, CompData.Summoner1, firstSummonerOutputLabel);
+            CheckSummonerNameInput(1);
         }
 
         private void secondSummonerNameTextBox_TextChanged(object sender, EventArgs e)
@@ -81,29 +81,46 @@ namespace RiotAPI
         {
             if (e.KeyData == Keys.Enter)
             {
-                CheckSummonerNameInput(SecondSummonerID, CompData.Summoner2, secondSummonerOutputLabel);
+                CheckSummonerNameInput(2);
             }
         }
 
         private void secondSummonerOKButton_Click(object sender, EventArgs e)
         {
-            CheckSummonerNameInput(SecondSummonerID, CompData.Summoner2, secondSummonerOutputLabel);
+            CheckSummonerNameInput(2);
         }
         #endregion
 
-        private void CheckSummonerNameInput(string summonerID, Summoner summoner, Label summonerOutputLabel)
+        private void CheckSummonerNameInput(int summonerValue)
         {
-            if (!string.IsNullOrEmpty(summonerID))
+            if (summonerValue == 1)
             {
-                summoner = CompData.ApiInstance.SummonerV4.GetBySummonerName(MingweiSamuel.Camille.Enums.Region.NA, summonerID);
-                summonerOutputLabel.Text = summoner.Name;
+                if (!string.IsNullOrEmpty(FirstSummonerID))
+                {
+                    CompData.Summoner1 = CompData.ApiInstance.SummonerV4.GetBySummonerName(MingweiSamuel.Camille.Enums.Region.NA, FirstSummonerID);
+                    firstSummonerOutputLabel.Text = CompData.Summoner1.Name;
+                }
+                else
+                {
+                    MessageBox.Show("Valid name required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (summonerValue == 2)
+            {
+                if (!string.IsNullOrEmpty(SecondSummonerID))
+                {
+                    CompData.Summoner2 = CompData.ApiInstance.SummonerV4.GetBySummonerName(MingweiSamuel.Camille.Enums.Region.NA, SecondSummonerID);
+                    firstSummonerOutputLabel.Text = CompData.Summoner2.Name;
+                }
+                else
+                {
+                    MessageBox.Show("Valid name required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Valid name required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw new InvalidProgramException("Invalid summonerValue.");
             }
         }
-
-        
     }
 }
