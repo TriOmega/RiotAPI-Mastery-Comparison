@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using MingweiSamuel.Camille;
 
 namespace RiotAPI
 {
-    class ChampionList
+    class Champion
     {
-        public Dictionary<string, Champion> Data { get; set; } 
+        public long Key { get; set; }
+        public string Name { get; set; }
     }
 }

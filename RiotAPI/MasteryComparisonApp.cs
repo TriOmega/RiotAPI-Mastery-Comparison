@@ -53,7 +53,7 @@ namespace RiotAPI
             //}
             foreach(var entry in CompData.Summoner1ComparedMasteryList)
             {
-                firstSummonerFlowPanel.Controls.Add(new ChampionEntry(entry.ChampionPoints));
+                firstSummonerFlowPanel.Controls.Add(new ChampionEntry(entry.ChampionPoints, entry.ChampionId));
             }
         }
 
