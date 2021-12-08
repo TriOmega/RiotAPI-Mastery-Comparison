@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using MingweiSamuel.Camille;
+//using MingweiSamuel.Camille.ChampionMasteryV4;
 using MingweiSamuel.Camille.SummonerV4;
 using RiotAPI.UserControls;
 
@@ -38,20 +39,25 @@ namespace RiotAPI
         public MasteryComparisonApp()
         {
             InitializeComponent();
-            CompData = new ComparisonData(RiotApi.NewInstance("RGAPI-e0aa5040-e568-4e0e-8873-a44066bb97bd"));
+            CompData = new ComparisonData(RiotApi.NewInstance("RGAPI-152a8709-2d6f-401f-9f30-5b23fea6cb80"));
         }
 
         private void compareButton_Click(object sender, EventArgs e)
         {
-            ChampionEntry[] championEntries = new ChampionEntry[5];
-            for (int i = 0; i < championEntries.Length; i++)
+            CompData.CompareSummonerMasteryLists();
+            //ChampionEntry[] summoner1ChampionEntries = new ChampionEntry[CompData.Summoner1ComparedMasteryList.Count];
+            //for (int i = 0; i < championEntries.Length; i++)
+            //{
+            //    championEntries[i] = new ChampionEntry();
+            //    firstSummonerFlowPanel.Controls.Add(championEntries[i]);
+            //}
+            foreach(var entry in CompData.Summoner1ComparedMasteryList)
             {
-                championEntries[i] = new ChampionEntry();
-                firstSummonerFlowPanel.Controls.Add(championEntries[i]);
+                firstSummonerFlowPanel.Controls.Add(new ChampionEntry(entry.ChampionPoints));
             }
         }
 
-        #region FirstSummonerInput
+#region FirstSummonerInput
         private void firstSummonerNameTextBox_TextChanged(object sender, EventArgs e)
         {
             //compareButton.Enabled = !string.IsNullOrEmpty(FirstSummonerID);
@@ -76,7 +82,7 @@ namespace RiotAPI
         }
         #endregion
 
-        #region SecondSummonerInput
+#region SecondSummonerInput
         private void secondSummonerNameTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter)
@@ -89,7 +95,7 @@ namespace RiotAPI
         {
             CheckSummonerNameInput(2);
         }
-        #endregion
+#endregion
 
         private void CheckSummonerNameInput(int summonerValue)
         {
@@ -110,7 +116,7 @@ namespace RiotAPI
                 if (!string.IsNullOrEmpty(SecondSummonerID))
                 {
                     CompData.Summoner2 = CompData.ApiInstance.SummonerV4.GetBySummonerName(MingweiSamuel.Camille.Enums.Region.NA, SecondSummonerID);
-                    firstSummonerOutputLabel.Text = CompData.Summoner2.Name;
+                    secondSummonerOutputLabel.Text = CompData.Summoner2.Name;
                 }
                 else
                 {

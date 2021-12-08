@@ -87,6 +87,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ChampionList.cs" />
     <Compile Include="Classes\ComparisonData.cs" />
     <Compile Include="MasteryComparisonApp.cs">
       <SubType>Form</SubType>
@@ -117,7 +118,9 @@
     <EmbeddedResource Include="UserControls\ChampionEntry.resx">
       <DependentUpon>ChampionEntry.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="champion.json" />
+    <None Include="champion.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -126,7 +126,6 @@ namespace RiotAPI
             // compareButton
             // 
             this.compareButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.compareButton.Enabled = false;
             this.compareButton.Location = new System.Drawing.Point(0, 169);
             this.compareButton.Name = "compareButton";
             this.compareButton.Size = new System.Drawing.Size(808, 23);

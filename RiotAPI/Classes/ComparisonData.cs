@@ -19,8 +19,8 @@ namespace RiotAPI
         
         public RiotApi ApiInstance { get; set; }
 
-        List<ChampionMastery> Summoner1ChampionMasteries = new List<ChampionMastery>();
-        List<ChampionMastery> Summoner2ChampionMasteries = new List<ChampionMastery>();
+        Dictionary<long, ChampionMastery> Summoner1ChampionMasteries = new Dictionary<long, ChampionMastery>();
+        Dictionary<long, ChampionMastery> Summoner2ChampionMasteries = new Dictionary<long, ChampionMastery>();
 
         public Summoner Summoner1
         {
@@ -31,7 +31,7 @@ namespace RiotAPI
                 ChampionMastery[] championMasteries = ApiInstance.ChampionMasteryV4.GetAllChampionMasteries(Region.NA, Summoner1.Id);
                 foreach (ChampionMastery entry in championMasteries)
                 {
-                    Summoner1ChampionMasteries.Add(entry);
+                    Summoner1ChampionMasteries.Add(entry.ChampionId, entry);
                 }
             }
         }
@@ -45,15 +45,42 @@ namespace RiotAPI
                 ChampionMastery[] championMasteries = ApiInstance.ChampionMasteryV4.GetAllChampionMasteries(Region.NA, Summoner2.Id);
                 foreach (ChampionMastery entry in championMasteries)
                 {
-                    Summoner2ChampionMasteries.Add(entry);
+                    Summoner2ChampionMasteries.Add(entry.ChampionId, entry);
                 }
             }
         }
 
-        //List<ChampionMastery> summoner1masteries, List<ChampionMastery> summoner2masteries
+        public List<ChampionMastery> Summoner1ComparedMasteryList = new List<ChampionMastery>();
+        public List<ChampionMastery> Summoner2ComparedMasteryList = new List<ChampionMastery>();
+
         public void CompareSummonerMasteryLists ()
         {
-            //Summoner1ChampionMasteries.Where(Summoner1ChampionMasteries.Exists(Summoner1ChampionMasteries))
+
+            var query = Summoner1ChampionMasteries.Where(champion => Summoner2ChampionMasteries.ContainsKey(champion.Key));
+            
+            foreach (var champion in query)
+            {
+                Summoner1ComparedMasteryList.Add(champion.Value);
+            }
+
+            query = Summoner2ChampionMasteries.Where(champion => Summoner1ChampionMasteries.ContainsKey(champion.Key));
+            foreach (var champion in query)
+            {
+                Summoner2ComparedMasteryList.Add(champion.Value);
+            }
+
+            query = Summoner1ChampionMasteries.Where(champion => !Summoner2ChampionMasteries.ContainsKey(champion.Key));
+
+            foreach (var champion in query)
+            {
+                Summoner1ComparedMasteryList.Add(champion.Value);
+            }
+
+            query = Summoner2ChampionMasteries.Where(champion => !Summoner1ChampionMasteries.ContainsKey(champion.Key));
+            foreach (var champion in query)
+            {
+                Summoner2ComparedMasteryList.Add(champion.Value);
+            }
         }
 
         private Summoner _summoner1;
