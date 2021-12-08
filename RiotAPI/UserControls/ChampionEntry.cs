@@ -15,7 +15,6 @@ namespace RiotAPI.UserControls
     public partial class ChampionEntry : UserControl
     {
         private ChampionList ChampionNameList { get; set; }
-        private Champion woah { get; set; }
         public ChampionEntry(long masteryScore, long championID)
         {
             InitializeComponent();

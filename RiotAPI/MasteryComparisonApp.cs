@@ -45,15 +45,13 @@ namespace RiotAPI
         private void compareButton_Click(object sender, EventArgs e)
         {
             CompData.CompareSummonerMasteryLists();
-            //ChampionEntry[] summoner1ChampionEntries = new ChampionEntry[CompData.Summoner1ComparedMasteryList.Count];
-            //for (int i = 0; i < championEntries.Length; i++)
-            //{
-            //    championEntries[i] = new ChampionEntry();
-            //    firstSummonerFlowPanel.Controls.Add(championEntries[i]);
-            //}
             foreach(var entry in CompData.Summoner1ComparedMasteryList)
             {
                 firstSummonerFlowPanel.Controls.Add(new ChampionEntry(entry.ChampionPoints, entry.ChampionId));
+            }
+            foreach (var entry in CompData.Summoner2ComparedMasteryList)
+            {
+                secondSummonerFlowPanel.Controls.Add(new ChampionEntry(entry.ChampionPoints, entry.ChampionId));
             }
         }
 
