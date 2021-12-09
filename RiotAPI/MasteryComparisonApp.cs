@@ -36,11 +36,24 @@ namespace RiotAPI
         public MasteryComparisonApp()
         {
             InitializeComponent();
-            CompData = new ComparisonData(RiotApi.NewInstance("RGAPI-152a8709-2d6f-401f-9f30-5b23fea6cb80"));
+            using (ApiKeyForm apiKeyForm = new ApiKeyForm())
+            {
+                var result = apiKeyForm.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    CompData = new ComparisonData(RiotApi.NewInstance(apiKeyForm.APIKeyText));
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    Close();
+                }
+            }
         }
 
         private void compareButton_Click(object sender, EventArgs e)
         {
+            firstSummonerFlowPanel.Controls.Clear();
+            secondSummonerFlowPanel.Controls.Clear();
             CompData.CompareSummonerMasteryLists();
             foreach(var entry in CompData.Summoner1ComparedMasteryList)
             {
@@ -91,6 +104,17 @@ namespace RiotAPI
             CheckSummonerNameInput(2);
         }
 #endregion
+
+        private void apiKeyButton_Click(object sender, EventArgs e)
+        {
+            using (ApiKeyForm apiKeyForm = new ApiKeyForm())
+            {
+                if (apiKeyForm.ShowDialog() == DialogResult.OK)
+                {
+                    
+                }
+            }
+        }
 
         private void CheckSummonerNameInput(int summonerValue)
         {

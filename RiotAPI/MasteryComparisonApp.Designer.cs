@@ -44,6 +44,7 @@ namespace RiotAPI
             this.secondSummonerOutputLabel = new System.Windows.Forms.Label();
             this.firstSummonerFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.secondSummonerFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.apiKeyButton = new System.Windows.Forms.Button();
             inputPanel = new System.Windows.Forms.Panel();
             secondSummonerInputPanel = new System.Windows.Forms.Panel();
             secondSummonerInputLabel = new System.Windows.Forms.Label();
@@ -205,7 +206,7 @@ namespace RiotAPI
             this.firstSummonerFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.firstSummonerFlowPanel.Location = new System.Drawing.Point(13, 251);
             this.firstSummonerFlowPanel.Name = "firstSummonerFlowPanel";
-            this.firstSummonerFlowPanel.Size = new System.Drawing.Size(393, 647);
+            this.firstSummonerFlowPanel.Size = new System.Drawing.Size(393, 620);
             this.firstSummonerFlowPanel.TabIndex = 9;
             // 
             // secondSummonerFlowPanel
@@ -214,14 +215,25 @@ namespace RiotAPI
             this.secondSummonerFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.secondSummonerFlowPanel.Location = new System.Drawing.Point(428, 251);
             this.secondSummonerFlowPanel.Name = "secondSummonerFlowPanel";
-            this.secondSummonerFlowPanel.Size = new System.Drawing.Size(393, 647);
+            this.secondSummonerFlowPanel.Size = new System.Drawing.Size(393, 620);
             this.secondSummonerFlowPanel.TabIndex = 10;
+            // 
+            // apiKeyButton
+            // 
+            this.apiKeyButton.Location = new System.Drawing.Point(746, 877);
+            this.apiKeyButton.Name = "apiKeyButton";
+            this.apiKeyButton.Size = new System.Drawing.Size(75, 23);
+            this.apiKeyButton.TabIndex = 6;
+            this.apiKeyButton.Text = "API Key";
+            this.apiKeyButton.UseVisualStyleBackColor = true;
+            this.apiKeyButton.Click += new System.EventHandler(this.apiKeyButton_Click);
             // 
             // MasteryComparisonApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 911);
+            this.Controls.Add(this.apiKeyButton);
             this.Controls.Add(this.secondSummonerFlowPanel);
             this.Controls.Add(this.firstSummonerFlowPanel);
             this.Controls.Add(this.secondSummonerOutputLabel);
@@ -251,6 +263,7 @@ namespace RiotAPI
         private System.Windows.Forms.Label secondSummonerOutputLabel;
         private System.Windows.Forms.FlowLayoutPanel firstSummonerFlowPanel;
         private System.Windows.Forms.FlowLayoutPanel secondSummonerFlowPanel;
+        private System.Windows.Forms.Button apiKeyButton;
     }
 }
 

@@ -87,6 +87,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiKeyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApiKeyForm.Designer.cs">
+      <DependentUpon>ApiKeyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\ChampionList.cs" />
     <Compile Include="Classes\Champion.cs" />
     <Compile Include="Classes\ComparisonData.cs" />
@@ -104,6 +110,9 @@
     <Compile Include="UserControls\ChampionEntry.Designer.cs">
       <DependentUpon>ChampionEntry.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ApiKeyForm.resx">
+      <DependentUpon>ApiKeyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MasteryComparisonApp.resx">
       <DependentUpon>MasteryComparisonApp.cs</DependentUpon>
     </EmbeddedResource>
