@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MingweiSamuel.Camille;
 using MingweiSamuel.Camille.Enums;
 using MingweiSamuel.Camille.SummonerV4;
@@ -19,8 +16,8 @@ namespace RiotAPI
         
         public RiotApi ApiInstance { get; set; }
 
-        Dictionary<long, ChampionMastery> Summoner1ChampionMasteries = new Dictionary<long, ChampionMastery>();
-        Dictionary<long, ChampionMastery> Summoner2ChampionMasteries = new Dictionary<long, ChampionMastery>();
+        private Dictionary<long, ChampionMastery> Summoner1ChampionMasteries = new Dictionary<long, ChampionMastery>();
+        private Dictionary<long, ChampionMastery> Summoner2ChampionMasteries = new Dictionary<long, ChampionMastery>();
 
         public Summoner Summoner1
         {

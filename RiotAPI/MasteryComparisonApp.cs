@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using MingweiSamuel.Camille;
-//using MingweiSamuel.Camille.ChampionMasteryV4;
-using MingweiSamuel.Camille.SummonerV4;
 using RiotAPI.UserControls;
 
 namespace RiotAPI
@@ -58,7 +55,7 @@ namespace RiotAPI
 #region FirstSummonerInput
         private void firstSummonerNameTextBox_TextChanged(object sender, EventArgs e)
         {
-            //compareButton.Enabled = !string.IsNullOrEmpty(FirstSummonerID);
+
         }
 
         private void firstSummonerNameTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -73,14 +70,14 @@ namespace RiotAPI
         {
             CheckSummonerNameInput(1);
         }
+#endregion
 
+#region SecondSummonerInput
         private void secondSummonerNameTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
-        #endregion
 
-#region SecondSummonerInput
         private void secondSummonerNameTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter)
